@@ -4,6 +4,8 @@ function formatAs12HourClock(time) {
 
   if (hours === 0) {
     return `12:${minutes} am`;
+  } else if (hours === 12) {
+    return `12:${minutes} pm`;
   } else if (hours > 12) {
     const pmHours = (hours - 12).toString().padStart(2, "0");
     return `${pmHours}:${minutes} pm`;
