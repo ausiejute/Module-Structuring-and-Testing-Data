@@ -12,3 +12,9 @@ test("can correctly convert morning time", function () {
 
 test("can correctly convert minutes", () =>
   assert.equal(formatAs12HourClock("13:30"), "01:30 pm"));
+
+test("can correctly convert hours before midnight", () =>
+  assert.equal(formatAs12HourClock("23:59"), "11:59 pm"));
+
+test("can correctly convert hours before midday", () =>
+  assert.equal(formatAs12HourClock("11:59"), "11:59 am"));
