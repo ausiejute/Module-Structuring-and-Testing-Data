@@ -16,6 +16,19 @@
 // After you have implemented the function, write tests to cover all the cases, and
 // execute the code to ensure all tests pass.
 
-export function getAngleType(angle) {
-  // TODO: Implement this function
+function getAngleType(angle) {
+  if (angle === 90) {
+    return `Right angle`;
+  } else if (angle >= 0 && angle < 90) {
+    return `Acute angle`;
+  } else if (angle > 90 && angle < 180) {
+    return `Obtuse angle`;
+  } else if (angle === 180) {
+    return `Straight angle`;
+  } else if (angle > 180 && angle <= 360) {
+    return `Reflex angle`;
+  }
+  return `Invalid angle`;
 }
+
+export { getAngleType };
