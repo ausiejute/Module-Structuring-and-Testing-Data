@@ -25,6 +25,15 @@
 
 function getCardValue(card) {
   const cardRank = card.slice(0, -1);
+  const suit = card.slice(-1);
+
+  if (cardRank === card) {
+    throw new Error(`Expected a number followed by a suit, but got "${card}"`);
+  }
+
+  if (!["♠", "♥", "♦", "♣"].includes(suit)) {
+    throw new Error(`Expected a number followed by a suit, but got "${card}"`);
+  }
 
   if (cardRank == "A") {
     return 11;
@@ -45,8 +54,8 @@ function getCardValue(card) {
   ) {
     return Number(cardRank);
   } else {
-    return "invalid";
+    throw new Error(`Expected a number followed by a suit, but got "${card}"`);
   }
 }
 
-console.log(getCardValue("A♠"));
+export { getCardValue };
