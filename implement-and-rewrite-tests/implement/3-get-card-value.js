@@ -24,15 +24,14 @@
 // execute the code to ensure all tests pass.
 
 function getCardValue(card) {
+  if (card == "") {
+    throw new Error(`Missing a specific number and specific suit symbol`);
+  }
   const cardRank = card.slice(0, -1);
   const suit = card.slice(-1);
 
-  if (cardRank === card) {
-    throw new Error(`Expected a number followed by a suit, but got "${card}"`);
-  }
-
   if (!["♠", "♥", "♦", "♣"].includes(suit)) {
-    throw new Error(`Expected a number followed by a suit, but got "${card}"`);
+    throw new Error(`Missing a specific suit symbol`);
   }
 
   if (cardRank == "A") {
@@ -54,7 +53,7 @@ function getCardValue(card) {
   ) {
     return Number(cardRank);
   } else {
-    throw new Error(`Expected a number followed by a suit, but got "${card}"`);
+    throw new Error(`Missing a specific number and specific suit symbol`);
   }
 }
 
