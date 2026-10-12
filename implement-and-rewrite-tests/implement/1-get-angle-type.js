@@ -17,6 +17,8 @@
 // execute the code to ensure all tests pass.
 
 function getAngleType(angle) {
+  if (isNaN(angle) || angle == null || angle === "") return `Invalid Input`;
+
   if (angle === 90) {
     return `Right angle`;
   } else if (angle >= 0 && angle < 90) {
@@ -25,10 +27,10 @@ function getAngleType(angle) {
     return `Obtuse angle`;
   } else if (angle === 180) {
     return `Straight angle`;
-  } else if (angle > 180 && angle <= 360) {
+  } else if (angle > 180 && angle < 360) {
     return `Reflex angle`;
   }
-  return `Invalid angle`;
+  return `Out of range`;
 }
 
 export { getAngleType };

@@ -31,7 +31,32 @@ test("Classifies reflex angles", () => {
   assert.equal(reflex, "Reflex angle");
 });
 
-test("Classifies invalid angles", () => {
-  const invalid = getAngleType(400);
-  assert.equal(invalid, "Invalid angle");
+test("Rejects out-of-range angles - too large", () => {
+  const tooLarge = getAngleType(400);
+  assert.equal(tooLarge, "Out of range");
+});
+
+test("Rejects out-of-range angles - negative", () => {
+  const negative = getAngleType(-50);
+  assert.equal(negative, "Out of range");
+});
+//
+test("Rejects invalid inputs correctly - empty string", () => {
+  const emptyString = getAngleType("");
+  assert.equal(emptyString, "Invalid Input");
+});
+
+test("Rejects invalid inputs correctly - NaN value", () => {
+  const nanValue = getAngleType(NaN);
+  assert.equal(nanValue, "Invalid Input");
+});
+
+test("Rejects invalid inputs correctly - undefined ", () => {
+  const undefinedValue = getAngleType(undefined);
+  assert.equal(undefinedValue, "Invalid Input");
+});
+
+test("Rejects invalid inputs correctly - null ", () => {
+  const nullValue = getAngleType(null);
+  assert.equal(nullValue, "Invalid Input");
 });

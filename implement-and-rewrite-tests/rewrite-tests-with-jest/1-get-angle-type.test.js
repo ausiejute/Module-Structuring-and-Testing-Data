@@ -32,8 +32,15 @@ test(`should return "Reflex angle" when (180 < angle < 360 )`, () => {
   expect(getAngleType(270)).toEqual("Reflex angle");
   expect(getAngleType(359)).toEqual("Reflex angle");
 });
-// Case 6: Invalid angles
-test(`should return "Invalid angle" when (angle < 0 || angle > 360)`, () => {
-  expect(getAngleType(-1)).toEqual("Invalid angle");
-  expect(getAngleType(361)).toEqual("Invalid angle");
+// Case 6: Out of range angles
+test(`should return "Out of range" when (angle < 0 || angle > 360)`, () => {
+  expect(getAngleType(-1)).toEqual("Out of range");
+  expect(getAngleType(361)).toEqual("Out of range");
+});
+// Case 7: Invalid inputs
+test(`should return "Invalid Input" when (isNaN(angle) || angle == null || angle === "")`, () => {
+  expect(getAngleType(NaN)).toEqual("Invalid Input");
+  expect(getAngleType(null)).toEqual("Invalid Input");
+  expect(getAngleType("")).toEqual("Invalid Input");
+  expect(getAngleType(undefined)).toEqual("Invalid Input");
 });
