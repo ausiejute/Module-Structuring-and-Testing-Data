@@ -38,3 +38,7 @@ test("Improper fraction with equal values", () => {
 test("Proper fraction with zero numerator", () => {
   assert.equal(isProperFraction(0, 4), true);
 });
+
+test("Improper fraction with zero denominator", () => {
+  assert.equal(isProperFraction(4, 0), false);
+});
