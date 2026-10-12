@@ -11,38 +11,22 @@ test(`Should return 11 when given an ace card`, () => {
 //   Number Cards (2-10)
 //   Face Cards (J, Q, K)
 //   Invalid Cards
-
 // To learn how to test whether a function throws an error as expected in Jest,
 // please refer to the Jest documentation:
 // https://jestjs.io/docs/expect#tothrowerror
 // -----number cards------
-test(`Should return 2 when given a 2 card`, () => {
-  expect(getCardValue("2♥")).toEqual(2);
-});
-
-test(`Should return 3 when given a 3 card`, () => {
-  expect(getCardValue("3♣")).toEqual(3);
-});
-test(`Should return 4 when given a 4 card`, () => {
-  expect(getCardValue("4♦")).toEqual(4);
-});
-test(`Should return 5 when given a 5 card`, () => {
-  expect(getCardValue("5♠")).toEqual(5);
-});
-test(`Should return 6 when given a 6 card`, () => {
-  expect(getCardValue("6♦")).toEqual(6);
-});
-test(`Should return 7 when given a 7 card`, () => {
-  expect(getCardValue("7♥")).toEqual(7);
-});
-test(`Should return 8 when given a 8 card`, () => {
-  expect(getCardValue("8♠")).toEqual(8);
-});
-test(`Should return 9 when given a 9 card`, () => {
-  expect(getCardValue("9♥")).toEqual(9);
-});
-test(`Should return 10 when given a 10 card`, () => {
-  expect(getCardValue("10♣")).toEqual(10);
+test.each([
+  { card: "2♥", value: 2 },
+  { card: "3♣", value: 3 },
+  { card: "4♦", value: 4 },
+  { card: "5♠", value: 5 },
+  { card: "6♦", value: 6 },
+  { card: "7♥", value: 7 },
+  { card: "8♠", value: 8 },
+  { card: "9♥", value: 9 },
+  { card: "10♣", value: 10 },
+])("Should return $value when given a $card card", ({ card, value }) => {
+  expect(getCardValue(card)).toEqual(value);
 });
 // -----remaining face cards-----
 test(`Should return 10 when given a jack card`, () => {
