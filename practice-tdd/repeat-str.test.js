@@ -40,6 +40,13 @@ test("should repeat the string 0 times", () => {
   expect(repeatedStr).toEqual("");
 });
 
+test("should repeat the string 0 times", () => {
+  const str = "";
+  const count = 0;
+  const repeatedStr = repeatStr(str, count);
+  expect(repeatedStr).toEqual("");
+});
+
 // Case: Handle negative count:
 // Given a target string `str` and a negative integer `count`,
 // When the repeatStr function is called with these inputs,
