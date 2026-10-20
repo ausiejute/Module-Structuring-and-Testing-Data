@@ -31,6 +31,12 @@ test("should append 'rd' for numbers ending with 3, except those ending with 13"
   expect(getOrdinalNumber(123)).toEqual("123rd");
 });
 
+test("should append 'th for special cases 11, 12, 13", () => {
+  expect(getOrdinalNumber(11)).toEqual("11th");
+  expect(getOrdinalNumber(12)).toEqual("12th");
+  expect(getOrdinalNumber(13)).toEqual("13th");
+});
+
 test("should append 'th' for the rest of the numbers", () => {
   expect(getOrdinalNumber(9)).toEqual("9th");
   expect(getOrdinalNumber(20)).toEqual("20th");
