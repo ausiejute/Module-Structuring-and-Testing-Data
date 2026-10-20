@@ -29,3 +29,10 @@ test("should count zero occurrences of a character", () => {
   const count = countChar(str, char);
   expect(count).toEqual(0);
 });
+
+test("should return 0 for no input", () => {
+  const str = "";
+  const char = "b";
+  const count = countChar(str, char);
+  expect(count).toEqual(0);
+});
